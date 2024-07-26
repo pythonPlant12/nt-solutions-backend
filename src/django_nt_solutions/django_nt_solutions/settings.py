@@ -1,3 +1,7 @@
+import dj_database_url
+import os
+import environ
+
 """
 Django settings for django_nt_solutions project.
 
@@ -15,6 +19,14 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Initialize environment variables
+env = environ.Env()
+
+# Construct the path to the .env file located at BASE_DIR/../env/.env
+env_file = BASE_DIR.parent / 'env' / '.env-dev'
+
+# Read the .env file
+environ.Env.read_env(env_file)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -73,13 +85,17 @@ WSGI_APPLICATION = 'django_nt_solutions.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# Database configuration
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': env('DATABASE_ENGINE', default='django.db.backends.sqlite3'),
+        'NAME': env('DATABASE_NAME', default=BASE_DIR / 'db.sqlite3'),
+        'USER': env('DATABASE_USER', default=''),
+        'PASSWORD': env('DATABASE_PASSWORD', default=''),
+        'HOST': env('DATABASE_HOST', default=''),
+        'PORT': env('DATABASE_PORT', default=''),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

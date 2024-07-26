@@ -20,13 +20,13 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Initialize environment variables
-env = environ.Env()
+# env = environ.Env()
 
 # Construct the path to the .env file located at BASE_DIR/../env/.env
-env_file = BASE_DIR.parent / 'env' / '.env-dev'
+# env_file = BASE_DIR.parent / 'env' / '.env-dev'
 
 # Read the .env file
-environ.Env.read_env(env_file)
+# environ.Env.read_env(BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -87,14 +87,15 @@ WSGI_APPLICATION = 'django_nt_solutions.wsgi.application'
 
 # Database configuration
 DATABASES = {
-    'default': {
-        'ENGINE': env('DATABASE_ENGINE', default='django.db.backends.sqlite3'),
-        'NAME': env('DATABASE_NAME', default=BASE_DIR / 'db.sqlite3'),
-        'USER': env('DATABASE_USER', default=''),
-        'PASSWORD': env('DATABASE_PASSWORD', default=''),
-        'HOST': env('DATABASE_HOST', default=''),
-        'PORT': env('DATABASE_PORT', default=''),
-    }
+#    'default': {
+#        'ENGINE': env('DATABASE_ENGINE', default='django.db.backends.sqlite3'),
+#        'NAME': env('DATABASE_NAME', default=BASE_DIR / 'db.sqlite3'),
+#        'USER': env('DATABASE_USER', default=''),
+#        'PASSWORD': env('DATABASE_PASSWORD', default=''),
+#        'HOST': env('DATABASE_HOST', default=''),
+#        'PORT': env('DATABASE_PORT', default=''),
+#    }
+    'default': dj_database_url.config(default='postgresql://ntsolutionsdbadmin:UDDw5hkcFTkIdemCDt33oFENYvcBbqRz@dpg-cqhu6o0gph6c73can6ug-a/ntsolutionsdb')
 }
 
 # Password validation

@@ -37,7 +37,7 @@ SECRET_KEY = 'django-insecure-doz*w41c)6v)0ci%qemn#9+pksdgjm3%^!uph0yhjm+-wumbfn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['nt-solutions-backend.onrender.com']
+ALLOWED_HOSTS = ['nt-solutions-backend.onrender.com', 'nt-solutions.es', 'www.nt-solutions.es' '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'testapp'
 ]
 
 MIDDLEWARE = [
@@ -61,7 +63,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'django_nt_solutions.django_nt_solutions.urls'
+ROOT_URLCONF = 'django_nt_solutions.urls'
 
 TEMPLATES = [
     {
@@ -87,15 +89,15 @@ WSGI_APPLICATION = 'django_nt_solutions.wsgi.application'
 
 # Database configuration
 DATABASES = {
-#    'default': {
-#        'ENGINE': env('DATABASE_ENGINE', default='django.db.backends.sqlite3'),
-#        'NAME': env('DATABASE_NAME', default=BASE_DIR / 'db.sqlite3'),
-#        'USER': env('DATABASE_USER', default=''),
-#        'PASSWORD': env('DATABASE_PASSWORD', default=''),
-#        'HOST': env('DATABASE_HOST', default=''),
-#        'PORT': env('DATABASE_PORT', default=''),
-#    }
-    'default': dj_database_url.config(default='postgresql://ntsolutionsdbadmin:UDDw5hkcFTkIdemCDt33oFENYvcBbqRz@dpg-cqhu6o0gph6c73can6ug-a/ntsolutionsdb')
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'local',
+    #     'USER': 'local',
+    #     'PASSWORD': 'local',
+    #     'HOST': 'localhost',
+    #     'PORT': '5432',
+    # }
+   'default': dj_database_url.config(default='postgresql://ntsolutionsdbadmin:UDDw5hkcFTkIdemCDt33oFENYvcBbqRz@dpg-cqhu6o0gph6c73can6ug-a/ntsolutionsdb')
 }
 
 # Password validation

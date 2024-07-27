@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from testapp.models import TestApp
+from src.nt_solutions.testapp.models import TestApp
 
 
 class TestAppSerializer(serializers.ModelSerializer):

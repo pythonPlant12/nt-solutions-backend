@@ -17,7 +17,7 @@ Including another URLconf
 from django.urls import include, path
 from rest_framework import routers
 
-from testapp.views import TestAppViewSet
+from django_nt_solutions.testapp.views import TestAppViewSet
 
 router = routers.DefaultRouter()
 router.register(r'testapp', TestAppViewSet)

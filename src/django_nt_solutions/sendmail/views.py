@@ -15,6 +15,14 @@ class SendMailViewSet(viewsets.ModelViewSet):
 
     def create(self, request, *args, **kwargs):
         print(request.data)
-        send_mail("Contacto desde nt-solutions.es", str(request.data), "pythonplant12@gmail.com",
-                  ["nikitalutsai@gmail.com"])
-        return super().create(request, *args, **kwargs)
+        try:
+            send_mail("Contacto desde nt-solutions.es", str(request.data), "pythonplant12@gmail.com",
+                      ["nikitalutsai@gmail.com"])
+            super().create(request, *args, **kwargs)
+            print("EMAIL ENVIADO DESDE try")
+            return Response({"message": "EMAIL ENVIADO DESDE try:"},)
+
+        except:
+            super().create(request, *args, **kwargs)
+            print("EMAIL ENVIADO DESDE except:")
+            return Response({"message": "EMAIL ENVIADO DESDE except:"},)

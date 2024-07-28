@@ -11,4 +11,4 @@ pip install -r requirements.txt
 # python ../src/django_nt_solutions/manage.py collectstatic --no-input
 
 # Apply any outstanding database migrations
-python ../src/django_nt_solutions/manage.py migrate
+python manage.py migrate

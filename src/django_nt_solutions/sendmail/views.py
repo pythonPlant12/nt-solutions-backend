@@ -18,11 +18,11 @@ class SendMailViewSet(viewsets.ModelViewSet):
         try:
             send_mail("Contacto desde nt-solutions.es", str(request.data), "pythonplant12@gmail.com",
                       ["nikitalutsai@gmail.com"])
-            super().create(request, *args, **kwargs)
+#            super().create(request, *args, **kwargs)
             print("EMAIL ENVIADO DESDE try")
             return Response({"message": "EMAIL ENVIADO DESDE try:"},)
 
         except:
-            super().create(request, *args, **kwargs)
             print("EMAIL ENVIADO DESDE except:")
+#            super().create(request, *args, **kwargs)
             return Response({"message": "EMAIL ENVIADO DESDE except:"},)

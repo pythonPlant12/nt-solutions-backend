@@ -8,7 +8,7 @@ chmod a+x build.sh
 pip install -r requirements.txt
 
 # Convert static asset files
-# python ../src/django_nt_solutions/manage.py collectstatic --no-input
+python ../src/django_nt_solutions/manage.py collectstatic --no-input
 
 # Apply any outstanding database migrations
 python manage.py migrate

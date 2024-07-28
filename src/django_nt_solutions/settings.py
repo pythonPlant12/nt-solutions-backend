@@ -37,7 +37,8 @@ SECRET_KEY = 'django-insecure-doz*w41c)6v)0ci%qemn#9+pksdgjm3%^!uph0yhjm+-wumbfn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['nt-solutions-backend.onrender.com', 'nt-solutions.es', '94.73.46.75', 'www.nt-solutions.es', '127.0.0.1',
+ALLOWED_HOSTS = ['nt-solutions-backend.onrender.com', 'nt-solutions.es', '94.73.46.75', 'www.nt-solutions.es',
+                 '127.0.0.1',
                  'localhost']
 
 # Application definition
@@ -63,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True  # Or specify allowed origins
@@ -100,7 +102,8 @@ DATABASES = {
     #     'HOST': 'localhost',
     #     'PORT': '5432',
     # }
-    'default': dj_database_url.config(default='postgresql://ntsolutionsdbadmin:UDDw5hkcFTkIdemCDt33oFENYvcBbqRz@dpg-cqhu6o0gph6c73can6ug-a/ntsolutionsdb')
+    'default': dj_database_url.config(
+        default='postgresql://ntsolutionsdbadmin:UDDw5hkcFTkIdemCDt33oFENYvcBbqRz@dpg-cqhu6o0gph6c73can6ug-a/ntsolutionsdb')
 }
 
 # Password validation
@@ -135,8 +138,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
-
+STATIC_URL = '/static/'
+# This production code might break development mode, so we check whether we're in DEBUG mode
+if not DEBUG:
+    # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
+    # and renames the files with unique names for each version to support long-term caching
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 

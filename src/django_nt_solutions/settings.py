@@ -40,6 +40,8 @@ else:
     DEBUG = True
 
 ALLOWED_HOSTS = ['nt-solutions-backend.onrender.com', 'nt-solutions.es', '94.73.46.75', 'www.nt-solutions.es']
+if not os.getenv('PRODUCTION'):
+    ALLOWED_HOSTS += ['localhost']
 
 # Application definition
 
@@ -100,18 +102,26 @@ WSGI_APPLICATION = 'django_nt_solutions.wsgi.application'
 
 # Database configuration
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': 'local',
-    #     'USER': 'local',
-    #     'PASSWORD': 'local',
-    #     'HOST': 'localhost',
-    #     'PORT': '5432',
-    # }
-    'default': dj_database_url.config(
-        default='postgresql://ntsolutionsdbadmin:UDDw5hkcFTkIdemCDt33oFENYvcBbqRz@dpg-cqhu6o0gph6c73can6ug-a/ntsolutionsdb')
 }
-
+if os.getenv('PRODUCTION'):
+    DATABASES.update(
+        {
+            'default': dj_database_url.config(
+                default='postgresql://ntsolutionsdbadmin:UDDw5hkcFTkIdemCDt33oFENYvcBbqRz@dpg-cqhu6o0gph6c73can6ug-a/ntsolutionsdb')
+        }
+    )
+else:
+    DATABASES.update(
+        {
+            'default': {
+                'ENGINE': 'django.db.backends.postgresql',
+                'NAME': 'local',
+                'USER': 'local',
+                'PASSWORD': 'local',
+                'HOST': 'localhost',
+                'PORT': '5432',
+            }
+        })
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 

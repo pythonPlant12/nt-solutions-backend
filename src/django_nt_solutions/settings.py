@@ -39,7 +39,7 @@ if os.getenv('PRODUCTION'):
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ['nt-solutions-backend.onrender.com', 'nt-solutions.es', '94.73.46.75', 'www.nt-solutions.es']
+ALLOWED_HOSTS = ['nt-solutions.es', '94.73.46.75', 'www.nt-solutions.es']
 if not os.getenv('PRODUCTION'):
     ALLOWED_HOSTS += ['127.0.0.1', 'localhost']
 

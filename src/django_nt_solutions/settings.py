@@ -37,9 +37,7 @@ SECRET_KEY = 'django-insecure-doz*w41c)6v)0ci%qemn#9+pksdgjm3%^!uph0yhjm+-wumbfn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['nt-solutions-backend.onrender.com', 'nt-solutions.es', '94.73.46.75', 'www.nt-solutions.es',
-                 '127.0.0.1',
-                 'localhost']
+ALLOWED_HOSTS = ['nt-solutions-backend.onrender.com', 'nt-solutions.es', '94.73.46.75', 'www.nt-solutions.es']
 
 # Application definition
 
@@ -67,7 +65,12 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True  # Or specify allowed origins
+# CORS_ALLOW_ALL_ORIGINS = True  # Or specify allowed origins
+
+CORS_ALLOWED_ORIGINS = [
+    "https://nt-solutions.es",  # Your frontend domain
+    "https://www.nt-solutions.es",
+]
 
 ROOT_URLCONF = 'django_nt_solutions.urls'
 

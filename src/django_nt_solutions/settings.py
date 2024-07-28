@@ -41,7 +41,7 @@ else:
 
 ALLOWED_HOSTS = ['nt-solutions-backend.onrender.com', 'nt-solutions.es', '94.73.46.75', 'www.nt-solutions.es']
 if not os.getenv('PRODUCTION'):
-    ALLOWED_HOSTS += ['localhost']
+    ALLOWED_HOSTS += ['127.0.0.1', 'localhost']
 
 # Application definition
 
@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'django_nt_solutions.testapp',
+    'django_nt_solutions.sendmail',
 ]
 
 MIDDLEWARE = [
@@ -139,6 +139,13 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/

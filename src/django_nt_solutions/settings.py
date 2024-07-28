@@ -33,9 +33,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-doz*w41c)6v)0ci%qemn#9+pksdgjm3%^!uph0yhjm+-wumbfn'
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+if os.getenv('PRODUCTION'):
+    DEBUG = False
+else:
+    DEBUG = True
 
 ALLOWED_HOSTS = ['nt-solutions-backend.onrender.com', 'nt-solutions.es', '94.73.46.75', 'www.nt-solutions.es']
 
@@ -65,12 +67,13 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-# CORS_ALLOW_ALL_ORIGINS = True  # Or specify allowed origins
-
-CORS_ALLOWED_ORIGINS = [
-    "https://nt-solutions.es",  # Your frontend domain
-    "https://www.nt-solutions.es",
-]
+if os.getenv('PRODUCTION'):
+    CORS_ALLOWED_ORIGINS = [
+        "https://nt-solutions.es",
+        "https://www.nt-solutions.es",
+    ]
+else:
+    CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'django_nt_solutions.urls'
 

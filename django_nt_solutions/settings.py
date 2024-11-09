@@ -114,7 +114,7 @@ if os.getenv('PRODUCTION'):
     DATABASES.update(
         {
             'default': dj_database_url.config(
-                default='postgresql://ntsolutionsdbadmin:UDDw5hkcFTkIdemCDt33oFENYvcBbqRz@dpg-cqhu6o0gph6c73can6ug-a/ntsolutionsdb')
+                default=os.getenv('DATABASE_URL'))
         }
     )
 else:

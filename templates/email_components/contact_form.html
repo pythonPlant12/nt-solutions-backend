@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap">
+</head>
+<body>
+
+{% include "email_components/shared/header.html" %}
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+   <tr>
+       <td bgcolor="#ffffff" align="center">
+           <table width="600" cellpadding="0" cellspacing="0" border="0">
+               <tr>
+                   <td style="padding: 40px 30px 40px 30px; font-family: 'Plus Jakarta Sans', Arial, sans-serif;">
+                       <h2 style="color: #072146; margin-bottom: 20px; font-weight: 600;">
+                           Nueva Solicitud de Contacto
+                       </h2>
+
+                       <!-- Customer Details Section -->
+                       <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 30px;">
+                           <tr>
+                               <td style="padding: 15px; background-color: #f8f9fa; border-radius: 8px;">
+                                   <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                       <tr>
+                                           <td style="color: #072146; font-weight: 600; padding-bottom: 10px;">
+                                               Detalles del Cliente
+                                           </td>
+                                       </tr>
+                                       <tr>
+                                           <td style="padding-bottom: 5px;">
+                                               <strong style="color: #666;">Nombre:</strong>
+                                               <span style="color: #333;">{{ name }}</span>
+                                           </td>
+                                       </tr>
+                                       <tr>
+                                           <td style="padding-bottom: 5px;">
+                                               <strong style="color: #666;">Teléfono:</strong>
+                                               <span style="color: #333;">{{ phone }}</span>
+                                           </td>
+                                       </tr>
+                                       <tr>
+                                           <td style="padding-bottom: 5px;">
+                                               <strong style="color: #666;">Email:</strong>
+                                               <span style="color: #333;">{{ email }}</span>
+                                           </td>
+                                       </tr>
+                                   </table>
+                               </td>
+                           </tr>
+                       </table>
+
+                       <!-- Request Details Section -->
+                       <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 30px;">
+                           <tr>
+                               <td style="padding: 15px; background-color: #f8f9fa; border-radius: 8px;">
+                                   <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                       <tr>
+                                           <td style="color: #072146; font-weight: 600; padding-bottom: 10px;">
+                                               Detalles de la Solicitud
+                                           </td>
+                                       </tr>
+                                       <tr>
+                                           <td style="padding-bottom: 5px;">
+                                               <strong style="color: #666;">Tipo de Solicitud:</strong>
+                                               <span style="color: #333;">{{ requestType }}</span>
+                                           </td>
+                                       </tr>
+                                       <tr>
+                                           <td style="padding-bottom: 5px;">
+                                               <strong style="color: #666;">Tamaño de la Empresa:</strong>
+                                               <span style="color: #333;">{{ companySize }}</span>
+                                           </td>
+                                       </tr>
+                                   </table>
+                               </td>
+                           </tr>
+                       </table>
+
+                       <!-- Message Section -->
+                       <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                           <tr>
+                               <td style="padding: 15px; background-color: #f8f9fa; border-radius: 8px;">
+                                   <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                       <tr>
+                                           <td style="color: #072146; font-weight: 600; padding-bottom: 10px;">
+                                               Mensaje
+                                           </td>
+                                       </tr>
+                                       <tr>
+                                           <td style="color: #333; line-height: 1.6;">
+                                               {{ texto }}
+                                           </td>
+                                       </tr>
+                                   </table>
+                               </td>
+                           </tr>
+                       </table>
+
+                   </td>
+               </tr>
+           </table>
+       </td>
+   </tr>
+</table>
+
+{% include "email_components/shared/footer.html" %}
+
+</body>
+</html>

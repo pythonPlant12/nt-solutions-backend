@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+  >
+</head>
+<body>
+
+{% include "email_components/shared/header.html" %}
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td bgcolor="#ffffff" align="center">
+      <table width="600" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td style="padding: 40px 30px 40px 30px; font-family: 'Plus Jakarta Sans', Arial, sans-serif;">
+            <!-- Gracias section -->
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 30px;">
+              <tr>
+                <td style="padding: 25px; background-color: #f8f9fa; border-radius: 8px;">
+                  <h3 style="color: #072146; margin-bottom: 15px; font-weight: 600;">
+                    Gracias
+                  </h3>
+                  <p style="color: #333; font-size: 16px; line-height: 1.6; margin-bottom: 20px;">
+                    Por suscribirte a nuestro boletín informativo. Para nosotros es un placer tenerte como parte
+                    de nuestra comunidad.
+                  </p>
+                </td>
+              </tr>
+            </table>
+
+            <!-- Main Section -->
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="padding: 25px; background-color: #f8f9fa; border-radius: 8px;">
+                  <h3 style="color: #072146; margin-bottom: 15px; font-weight: 600;">
+                    ¿Qué puedes esperar?
+                  </h3>
+                  <p style="color: #333; font-size: 16px; line-height: 1.6; margin-bottom: 20px;">
+                    Recibirás información exclusiva sobre:
+                  </p>
+                  <ul style="color: #333; font-size: 16px; line-height: 1.6; margin-bottom: 20px; padding-left: 20px;">
+                    <li style="margin-bottom: 10px;">Últimas tendencias en tecnología</li>
+                    <li style="margin-bottom: 10px;">Consejos y mejores prácticas</li>
+                    <li style="margin-bottom: 10px;">Novedades y actualizaciones de nuestros servicios</li>
+                  </ul>
+                  <p style="color: #333; font-size: 16px; line-height: 1.6; margin-top: 20px;">
+                    Estamos comprometidos a proporcionarte solo información que consideramos valiosa y beneficiosa para
+                    ti y tu negocio.
+                  </p>
+                </td>
+              </tr>
+            </table>
+
+            <!-- Privacy Section -->
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 30px;">
+              <tr>
+                <td style="padding: 25px; background-color: #f8f9fa; border-radius: 8px;">
+                  <h3 style="color: #072146; margin-bottom: 15px; font-weight: 600;">
+                    Privacidad
+                  </h3>
+                  <p style="color: #333; font-size: 16px; line-height: 1.6; margin-bottom: 20px;">
+                    En NT Solutions damos especial importancia a la privacidad y seguridad de tu información. Queremos
+                    asegurarte que:
+                  </p>
+                  <ul style="color: #333; font-size: 16px; line-height: 1.6; margin-bottom: 20px; padding-left: 20px;">
+                    <li style="margin-bottom: 10px;">Tu información personal está segura con nosotros</li>
+                    <li style="margin-bottom: 10px;">Solo compartiremos contenido relevante y valioso para ti</li>
+                    <li style="margin-bottom: 10px;">Nunca compartiremos tu información con terceros</li>
+                  </ul>
+                </td>
+              </tr>
+            </table>
+
+
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{% include "email_components/shared/footer.html" %}
+
+</body>
+</html>

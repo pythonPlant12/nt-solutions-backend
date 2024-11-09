@@ -118,6 +118,10 @@ celerybeat.pid
 
 # SageMath parsed files
 *.sage.py
+env/*
+**/.idea
+.idea
+nt-solutions-backend/.idea
 
 # Environments
 .env

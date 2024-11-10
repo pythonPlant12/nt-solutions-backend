@@ -45,9 +45,10 @@ SECRET_KEY = env('SECRET_KEY')
 # DEBUG = env('DEBUG')
 DEBUG = True
 ALLOWED_HOSTS = ['nt-solutions-backend.onrender.com', 'nt-solutions.es', '94.73.46.75', 'www.nt-solutions.es']
-if not os.getenv('PRODUCTION'):
+if os.getenv('PRODUCTION') == 'True':
     ALLOWED_HOSTS += ['127.0.0.1', 'localhost']
-ALLOWED_HOSTS = ['*']
+else:
+    ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
@@ -79,7 +80,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-if os.getenv('PRODUCTION'):
+if 'PRODUCTION' == 'True':
     CORS_ALLOWED_ORIGINS = [
         "https://nt-solutions.es",
         "https://www.nt-solutions.es",
@@ -174,12 +175,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 # This production code might break development mode, so we check whether we're in DEBUG mode
-if not DEBUG:
-    # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
-    # and renames the files with unique names for each version to support long-term caching
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
+# and renames the files with unique names for each version to support long-term caching
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 # Cors settings

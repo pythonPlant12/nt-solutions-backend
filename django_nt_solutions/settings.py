@@ -114,25 +114,25 @@ WSGI_APPLICATION = 'django_nt_solutions.wsgi.application'
 # Database configuration
 DATABASES = {
 }
-if os.getenv('PRODUCTION') == 'True':
-    DATABASES.update(
-        {
-            'default': dj_database_url.config(
-                default=os.getenv('DATABASE_URL'))
+# if os.getenv('PRODUCTION') == 'True':
+#     DATABASES.update(
+#         {
+#             'default': dj_database_url.config(
+#                 default=os.getenv('DATABASE_URL'))
+#         }
+#     )
+# else:
+DATABASES.update(
+    {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'ntsolutionsdb',
+            'USER': 'ntsolutionsdbuser',
+            'PASSWORD': 'UDDw5hkcFTkIdemCDt33oFENYvcBbqRz',
+            'HOST': 'db',  # this should match my database service on docker-compose
+            'PORT': '5432',
         }
-    )
-else:
-    DATABASES.update(
-        {
-            'default': {
-                'ENGINE': 'django.db.backends.postgresql',
-                'NAME': 'local',
-                'USER': 'local',
-                'PASSWORD': 'local',
-                'HOST': 'localhost',
-                'PORT': '5432',
-            }
-        })
+    })
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 

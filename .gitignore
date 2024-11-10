@@ -119,7 +119,7 @@ credentials.json
 
 # SageMath parsed files
 *.sage.py
-env/*
+environment/*
 **/.idea
 .idea
 nt-solutions-backend/.idea
